@@ -12,7 +12,9 @@ export class HomeComponent implements OnInit {
   selected = '';
   stops = [];
   trams = [];
+  msgs = [];
   infoMsg = "";
+  panelOpenState = false;
   displayedColumns: string[] = ['destination', 'carriages', 'status', 'wait'];
 
   loading = false;
@@ -22,17 +24,25 @@ export class HomeComponent implements OnInit {
   ) {
     setInterval(() => { this.countdownArr(); }, 1000);
     setInterval(() => { this.getTrams(); }, 30000);
+    setInterval(() => { this.getMsgs(); }, 180000);
   }
 
   ngOnInit() {
     this.getStops();
+    this.getMsgs();
     console.log("init");
   }
 
   getStops() {
     this.restApi.getStopNames().subscribe(data => {
-
       this.stops = data.data.data; // oops
+      console.dir(this.stops);
+    })
+  }
+
+  getMsgs() {
+    this.restApi.getMsgs().subscribe(data => {
+      this.msgs = data.data.data; // oops
       console.dir(this.stops);
     })
   }

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { TramTimes } from '../shared/models/tram-times';
 import { StopNames } from '../shared/models/stop-names';
+import { Msgs } from '../shared/models/Msgs';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 
@@ -35,6 +36,15 @@ export class RestApiService {
 
         getStopNames(): Observable<StopNames> {
             return this.http.get<StopNames>(this.apiURL + '/stopNames/')
+                .pipe(
+                    retry(1),
+                    catchError(this.handleError)
+                )
+        }
+
+        
+        getMsgs(): Observable<Msgs> {
+            return this.http.get<StopNames>(this.apiURL + '/networkMsgs/')
                 .pipe(
                     retry(1),
                     catchError(this.handleError)

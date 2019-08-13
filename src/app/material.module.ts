@@ -32,6 +32,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatTreeModule} from '@angular/material/tree';
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatSliderModule,
     MatSlideToggleModule,
     MatMenuModule,
+    MatTreeModule,
     MatSidenavModule,
     MatToolbarModule,
     MatListModule,
@@ -89,6 +91,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
         MatStepperModule,
         MatTabsModule,
         MatExpansionModule,
+        MatTreeModule,
         MatButtonToggleModule,
         MatChipsModule,
         MatIconModule,
